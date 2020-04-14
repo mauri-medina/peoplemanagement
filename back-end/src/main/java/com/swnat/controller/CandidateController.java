@@ -10,7 +10,7 @@ import com.swnat.model.Candidate;
 import com.swnat.service.CandidateService;
 import io.swagger.annotations.ApiOperation;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.awesfsadfasfdgannotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
