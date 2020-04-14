@@ -24,5 +24,8 @@ jobs:
       working-directory: ./back-end
 #       run: mvn -B package --file pom.xml
       run: |
+        pwd
+        cd back-end
         echo running ls
+        pwd
         ls -la
