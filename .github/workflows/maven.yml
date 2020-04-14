@@ -22,11 +22,11 @@ jobs:
       with:
         java-version: 1.8
     
+    - name: Go to back-end directory
+      run: cd back-end
+        
+    - name: Test with Maven
+      run: mvn test
+    
     - name: Build with Maven
-#       run: mvn -B package --file pom.xml
-      run: |
-        pwd
-        cd back-end
-        echo running ls
-        pwd
-        ls -la
+      run: mvn -B package --file pom.xml
