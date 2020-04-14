@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: mvn -f github-actions-java-maven/pom.xml clean compile
+      - run: mvn -f pom.xml clean compile
         working-directory: ${{env.working-directory}}
         
   build:
