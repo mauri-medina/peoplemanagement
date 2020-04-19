@@ -64,6 +64,6 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.PRIVATE_KEY }}
-        source: "./back-end/target/*.jar"
+        source: "./back-end/target/ppl-server-0.1.2.jar"
         target: "~/."
  
