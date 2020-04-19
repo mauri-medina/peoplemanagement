@@ -54,6 +54,7 @@ jobs:
     
   deploy:
     name: deploy
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: copy file via ssh key
