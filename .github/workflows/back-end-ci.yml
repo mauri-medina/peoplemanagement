@@ -65,6 +65,7 @@ jobs:
         pwd
         cd /target
         ls -la
+      working-directory: ${{env.working-directory}}
         
         
 #     - name: copy file via ssh key
