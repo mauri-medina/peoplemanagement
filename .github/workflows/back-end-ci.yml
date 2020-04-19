@@ -65,6 +65,10 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.KEY }}
       with:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.KEY }}
         source: "${{env.working-directory}}/target/*.jar"
-        target: "/home/${{ secrets.USERNAME }}/"
+        target: "~/."
  
