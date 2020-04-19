@@ -56,12 +56,14 @@ jobs:
     name: deploy
     needs: build
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./back-end
     steps:
     - name: Build with Maven
       run: |
         pwd
         ls -la
-        cd back-end/target
+        cd target
         ls -la
         
     - name: copy file via ssh key
