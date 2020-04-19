@@ -59,11 +59,12 @@ jobs:
     steps:
     - name: copy file via ssh key
       uses: appleboy/scp-action@master
-      with:
+      env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.PRIVATE_KEY }}
+      with:
         source: "./back-end/target/ppl-server-0.1.2.jar"
         target: "~/."
  
