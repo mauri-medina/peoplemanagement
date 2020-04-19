@@ -49,7 +49,7 @@ jobs:
         java-version: 1.8
     
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+      run: mvn -B package --file pom.xml -Dmaven.test.skip=true && ls -la
       working-directory: ${{env.working-directory}}
     
   deploy:
