@@ -61,4 +61,4 @@ jobs:
         KEY: ${{ secrets.PRIVATE_KEY }}
       with:
         source: "${{env.working-directory}}/target/*.jar"
-        target: "./deployments/"
+        target: "deployments"
