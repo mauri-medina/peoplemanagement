@@ -61,7 +61,7 @@ jobs:
       run: |
         pwd
         ls -la
-        cd target
+        cd back-end/target
         ls -la
         
     - name: copy file via ssh key
