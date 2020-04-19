@@ -51,14 +51,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true
       working-directory: ${{env.working-directory}}
-    
-    - name: test
-      run: | 
-        pwd
-        ls -la
-        cd ./target
-        ls -la
-      working-directory: ${{env.working-directory}}
       
     - name: copy file via ssh key
       uses: appleboy/scp-action@master
@@ -69,4 +61,4 @@ jobs:
         KEY: ${{ secrets.PRIVATE_KEY }}
       with:
         source: "${{env.working-directory}}/target/*.jar"
-        target: "~/."
+        target: "./deployments/"
