@@ -66,3 +66,15 @@ jobs:
       with:
         source: "*.jar"
         target: "deployments"
+      
+    - name: executing remote deploy script using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd deployments/
+          python3 deploy.py
+
