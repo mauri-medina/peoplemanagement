@@ -54,4 +54,14 @@ jobs:
           KEY: ${{ secrets.PRIVATE_KEY }}
         with:
           source: "${{env.build-name}}"
-          target: "deployments/front-end"
+          target: "/var/www/html/"
+          
+      - name: executing remote deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            sudo systemctl restart apache2
