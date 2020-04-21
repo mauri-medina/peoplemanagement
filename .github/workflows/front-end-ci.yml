@@ -38,7 +38,7 @@ jobs:
 
       - name: build
         run: |
-          npm run build:prod
+          npm run build:staging
         working-directory: ${{env.working-directory}}
 
         # this step is only needed to copy the dist to server and not entire directory tree
