@@ -34,3 +34,23 @@ jobs:
         run: |
           npm install
         working-directory: ${{env.working-directory}}
+
+      - name: build
+        run: |
+          npm run build:prod
+        working-directory: ${{env.working-directory}}
+
+        # this step is only needed to copy the dist to server and not entire directory tree
+      - name: Move dist to parent directory
+        run: mv ${{env.working-directory}}/dist .
+
+      - name: scp dist directory to server
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.PRIVATE_KEY }}
+        with:
+          source: "dist"
+          target: "deployments/front-end"
