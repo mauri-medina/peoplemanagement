@@ -13,6 +13,7 @@ jobs:
         node-version: [12.x]
     env:
       working-directory: ./front-end
+      build-name: pm-ui
 
     steps:
       - uses: actions/checkout@v1
@@ -41,10 +42,10 @@ jobs:
         working-directory: ${{env.working-directory}}
 
         # this step is only needed to copy the dist to server and not entire directory tree
-      - name: Move dist to parent directory
-        run: mv ${{env.working-directory}}/dist .
+      - name: Move build directory to parent directory
+        run: mv ${{env.working-directory}}/dist/${{env.build-name}} .
 
-      - name: scp dist directory to server
+      - name: scp build directory to server
         uses: appleboy/scp-action@master
         env:
           HOST: ${{ secrets.HOST }}
@@ -52,5 +53,5 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.PRIVATE_KEY }}
         with:
-          source: "dist"
+          source: "${{env.build-name}}"
           target: "deployments/front-end"
